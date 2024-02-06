@@ -11,6 +11,8 @@ func screenSize() -> CGSize {
     return UIScreen.main.bounds.size
 }
 
+
+
 struct ContentView: View {
     var body: some View {
         ZStack {
@@ -33,7 +35,7 @@ struct ContentView: View {
                                 Spacer()
                                 Text("2 minutes ago")
                                     .font(.footnote)
-                                    .foregroundColor(.primary)
+                                    .foregroundColor(.secondary)
                             }
                             
                             
@@ -41,11 +43,25 @@ struct ContentView: View {
                         
                     }
             
-                    Image(uiImage: UIImage(imageLiteralResourceName: "lake"))
-                        .resizable()
-                        .frame(height: 300)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .shadow(color: .black, radius: 15, x: 5, y: 10)
+                    RoundedImageView()
+                    
+                    HStack(spacing: 30) {
+                        Button(action: {}) {
+                            HStack {
+                                Image(systemName: "heart").font(Font.headline.weight(.semibold))
+                                Text("22").font(.caption)
+                            }
+                        }.foregroundColor(.black)
+                        
+                        Button(action: {}) {
+                            HStack {
+                                Image(systemName: "bubble.right").font(Font.headline.weight(.semibold))
+                                Text("4").font(.caption)
+                            }
+                        }.foregroundColor(.black)
+                        Spacer()
+                    }
+                    .padding(.top)
                 }
                 .padding(.leading)
                 .padding(.trailing)
@@ -86,5 +102,15 @@ struct NavigationBarView: View {
             }
             .padding()
         }
+    }
+}
+
+struct RoundedImageView: View {
+    var body: some View {
+        Image(uiImage: UIImage(imageLiteralResourceName: "lake"))
+            .resizable()
+            .frame(height: 300)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: Color.defaultShadowColor(), radius: 15, x: 5, y: 10)
     }
 }
