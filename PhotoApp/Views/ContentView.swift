@@ -16,15 +16,17 @@ struct ContentView: View {
             VStack {
                 NavigationBarView()
                 VStack {
-                    CardView()
-                    CardView()
-                    CardView()
-                    CardView()
-                    CardView()
+                    ScrollView {
+                        ForEach(1...5, id: \.self) { index in
+                        CardView()
+                    }
+                    }
+                    .padding(.bottom)
                 }
                 Spacer()
             }
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 #Preview {
@@ -55,7 +57,9 @@ struct NavigationBarView: View {
                         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                 }
             }
-            .padding()
+            .padding(.leading)
+            .padding(.trailing)
+            .padding(.top)
         }
     }
 }
