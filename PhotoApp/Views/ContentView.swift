@@ -20,10 +20,10 @@ struct ContentView: View {
                 NavigationBarView()
                 VStack {
                     HStack {
-                        Image(uiImage: UIImage(imageLiteralResourceName: "profile"))
-                            .resizable()
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
-                            .frame(width: 36, height: 36)
+                        RoundedImageView(imageName: "profile", cornerRadius: 5)
+                       
+                            .frame(width: 45, height: 36)
+                            .aspectRatio(contentMode: .fit)
                         VStack(alignment: .leading) {
                             Text("Mille_F")
                                 .font(.footnote)
@@ -44,6 +44,8 @@ struct ContentView: View {
                     }
             
                     RoundedImageView()
+                        .frame(height: 300)
+                        .shadow(color: Color.defaultShadowColor(), radius: 15, x: 5, y: 10)
                     
                     HStack(spacing: 30) {
                         Button(action: {}) {
@@ -105,12 +107,3 @@ struct NavigationBarView: View {
     }
 }
 
-struct RoundedImageView: View {
-    var body: some View {
-        Image(uiImage: UIImage(imageLiteralResourceName: "lake"))
-            .resizable()
-            .frame(height: 300)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: Color.defaultShadowColor(), radius: 15, x: 5, y: 10)
-    }
-}

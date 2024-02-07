@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct RoundedImageView: View {
+    var imageName: String = "lake"
+    var cornerRadius: CGFloat = 20
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(imageName)
+            .resizable()
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+      
     }
 }
+
 
 #Preview {
     RoundedImageView()

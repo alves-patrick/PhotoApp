@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+extension Color {
+    
+  static  func defaultShadowColor() -> Color {
+        return Color("DefaultShadow")
+    }
+}
