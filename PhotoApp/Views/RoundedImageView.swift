@@ -14,11 +14,8 @@ struct RoundedImageView: View {
         Image(imageName)
             .resizable()
             .clipShape(RoundedRectangle(cornerRadius: 20))
-      
     }
 }
-
-
 #Preview {
     RoundedImageView()
 }
