@@ -10,106 +10,43 @@ import SwiftUI
 func screenSize() -> CGSize {
     return UIScreen.main.bounds.size
 }
-struct ContentView: View {
+
+struct FeedView: View {
+    @ObservedObject var feedViewModel: FeedViewModel
+    
+    init(feedViewModel: FeedViewModel) {
+        self.feedViewModel = feedViewModel
+    }
     var body: some View {
         ZStack {
             VStack {
                 NavigationBarView()
                 VStack {
-                    ScrollView {
-                        ForEach(1...5, id: \.self) { index in
-                        CardView()
+                    if !self.feedViewModel.posts.isEmpty {
+                        ScrollView {
+                            ForEach(self.feedViewModel.posts.indices, id: \.self) { index in
+                                CardView(post: self.feedViewModel.posts[index])
+                            }
+                        }
+                        .padding(.bottom)
                     }
-                    }
-                    .padding(.bottom)
                 }
                 Spacer()
             }
         }
         .edgesIgnoringSafeArea(.bottom)
+        .onAppear {
+        self.feedViewModel.loadPosts()
+        }
     }
 }
 #Preview {
-    ContentView()
-}
-
-struct NavigationBarView: View {
-    var body: some View {
-        VStack {
-            HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Image(systemName: "camera")
-                        .resizable()
-                        .frame(width: 25, height: 20)
-                }
-                .foregroundColor(.black)
-                Spacer()
-                Text("PhotoApp")
-                    .font(Font.custom("Billabong", size: 28))
-                Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Image(uiImage: UIImage(imageLiteralResourceName: "profile"))
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 36, height: 36)
-                        .clipShape(Circle())
-                        .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                }
-            }
-            .padding(.leading)
-            .padding(.trailing)
-            .padding(.top)
-        }
-    }
+    FeedView(feedViewModel: FeedViewModel())
+    
 }
 
 
-struct CardView: View {
-    var body: some View {
-        VStack {
-            HStack {
-                RoundedImageView(imageName: "profile", cornerRadius: 5)
-                    .frame(width: 45, height: 36)
-                    .aspectRatio(contentMode: .fit)
-                VStack(alignment: .leading) {
-                    Text("Mille_F")
-                        .font(.footnote)
-                        .fontWeight(.bold)
-                    HStack {
-                        Text("London, England")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        Text("2 minutes ago")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                    }
-                }
-            }
-            RoundedImageView()
-                .frame(height: 300)
-                .shadow(color: Color.defaultShadowColor(), radius: 15, x: 5, y: 10)
-            
-            HStack(spacing: 30) {
-                Button(action: {}) {
-                    HStack {
-                        Image(systemName: "heart").font(Font.headline.weight(.semibold))
-                        Text("22").font(.caption)
-                    }
-                }.foregroundColor(.black)
-                
-                Button(action: {}) {
-                    HStack {
-                        Image(systemName: "bubble.right").font(Font.headline.weight(.semibold))
-                        Text("4").font(.caption)
-                    }
-                }.foregroundColor(.black)
-                Spacer()
-            }
-            .padding(.top)
-        }
-        .padding(.leading)
-        .padding(.trailing)
-    }
-}
+
+
+
+
