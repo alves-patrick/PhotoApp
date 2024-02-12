@@ -22,11 +22,11 @@ struct Post {
 
 let postData = [
 
-    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "mile_f", location: "london, England", timePostedSinceNow: "2 minutes ago", postImageUrl: "lake", commentCount: 3, likeCount: 5),
-    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "carmern_sandiego", location: "Rio de janeiro, Brazil", timePostedSinceNow: "10 minutes ago", postImageUrl: "show", commentCount: 3, likeCount: 15),
-    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "lucas_p", location: "Sidiney, Australia", timePostedSinceNow: "5 minutes ago", postImageUrl: "trees", commentCount: 10, likeCount: 5),
-    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "katia_s", location: "Sao paulo, Brazil", timePostedSinceNow: "3 minutes ago", postImageUrl: "friends", commentCount: 13, likeCount: 8),
-    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "mile_fak", location: "Paris, France", timePostedSinceNow: "1 minutes ago", postImageUrl: "profile", commentCount: 18, likeCount: 5),
+    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "Mile_f", location: "London, England", timePostedSinceNow: "2 minutes ago", postImageUrl: "lake", commentCount: 3, likeCount: 5),
+    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "Carmern_sandiego", location: "Rio de janeiro, Brazil", timePostedSinceNow: "10 minutes ago", postImageUrl: "show", commentCount: 3, likeCount: 15),
+    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "Lucas_p", location: "Sidney, Australia", timePostedSinceNow: "5 minutes ago", postImageUrl: "trees", commentCount: 10, likeCount: 5),
+    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "Katia_s", location: "São Paulo, Brazil", timePostedSinceNow: "3 minutes ago", postImageUrl: "friends", commentCount: 13, likeCount: 8),
+    Post(userImage:  Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "Marcos_fak", location: "Paris, France", timePostedSinceNow: "1 minutes ago", postImageUrl: "profile", commentCount: 18, likeCount: 5),
  
 
 ]
