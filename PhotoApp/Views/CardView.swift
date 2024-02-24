@@ -58,5 +58,5 @@ struct CardView: View {
     }
 }
 #Preview {
-    CardView(post: Post(userImage: Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "mile_f", location: "london, England", timePostedSinceNow: "2 minutes ago", postImageUrl: "lake", commentCount: 3, likeCount: 5))
+    CardView(post: Post(userImage: Image(uiImage: UIImage(imageLiteralResourceName: "profile")), username: "mile_f", location: "london, England", timePostedSinceNow: "2 minutes ago", postImageUrl: "lake", commentCount: 22, likeCount: 34))
 }
